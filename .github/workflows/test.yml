@@ -9,4 +9,4 @@ jobs:
       - name: docker build
         run: |
           docker build -t raysk4ever/react-docker -f Dockerfile.dev .
-          docker run raysk4ever/react-docker npm run test -- --coverage
+          docker run -e CI=true raysk4ever/react-docker npm run test
