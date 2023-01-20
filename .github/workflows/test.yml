@@ -1,0 +1,12 @@
+name: Docker Test Builds CI
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: docker build
+        run: |
+          docker build -t raysk4ever/react-docker -f Dockerfile.dev .
+          docker run raysk4ever/react-docker npm run test -- --coverage
